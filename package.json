@@ -6,11 +6,15 @@
   "license": "MIT",
   "scripts": {
     "start": "node main.js",
-    "start-dev": "nodemon main.js"
+    "lint": "./node_modules/eslint/bin/eslint.js **/*.js",
+    "start-dev": "nodemon main.js --exec 'npm run lint && node'"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "mongoose": "^5.0.11",
     "nodemon": "^1.17.2"
   },
   "devDependencies": {

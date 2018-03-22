@@ -24,8 +24,6 @@ yarn remove <dependency>
 
 ## TODO:
 * Logging
-* ESLint
-* CORS
 * Body Parser
 * MongoDB
 * Auth
@@ -34,4 +32,5 @@ yarn remove <dependency>
 * Prettier
 * Heroku Deployment
 * CircleCI
+* Testing
 

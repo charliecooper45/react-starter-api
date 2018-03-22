@@ -1,31 +1,24 @@
-const rides = [
-  {
-    id: 1,
-    title: 'Lunch time loop',
-    distance: '20.3'
-  },
-  {
-    id: 2,
-    title: 'Sunday Spin',
-    distance: '80.91'
-  },
-  {
-    id: 3,
-    title: 'Cool down',
-    distance: '10.17'
-  },
-  {
-    id: 4,
-    title: 'Crit Race',
-    distance: '25.89'
-  },
-  {
-    id: 5,
-    title: 'Epic climb with Dave',
-    distance: '17.07'
-  }
-];
+const Ride = require('../models/ride');
+const { ObjectId } = require('mongoose').Types;
 
-exports.list = (req, res) => {
+exports.list = async (req, res) => {
+  const rides = await Ride.find({});
   res.json(rides);
+};
+
+exports.create = async (req, res) => {
+  const ride = new Ride(req.body);
+  await ride.save();
+  res.status(201).json(ride);
+};
+
+exports.delete = async (req, res, next) => {
+  const { id } = req.params;
+
+  const { n } = await Ride.remove({ _id: ObjectId(id) });
+  if (n === 0) {
+    next(`Ride with ID ${id} not found`);
+  } else {
+    res.status(200).json({ id, message: 'Ride deleted' });
+  }
 };
