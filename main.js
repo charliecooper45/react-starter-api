@@ -18,7 +18,7 @@ app.use(errorHandler);
 
 require('./utils/db');
 
-app.listen(config.port, err => {
+const server = app.listen(config.port, err => {
   if (err) {
     console.error(err);
     process.exit(1);
@@ -26,3 +26,5 @@ app.listen(config.port, err => {
 
   console.log(`API is now running on port ${config.port} in ${config.env} mode`);
 });
+
+module.exports = server;

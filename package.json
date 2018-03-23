@@ -6,8 +6,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node main.js",
-    "lint": "./node_modules/eslint/bin/eslint.js **/*.js",
-    "start-dev": "nodemon main.js --exec 'npm run lint && node'"
+    "lint": "./node_modules/eslint/bin/eslint.js ./**/*",
+    "start-dev": "nodemon main.js --exec 'npm run lint && node'",
+    "test": "NODE_ENV=test mocha ./tests/* --exit",
+    "test-watch": "NODE_ENV=test mocha ./tests/* --watch"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -19,8 +21,13 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "eslint": "^4.19.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0"
+    "eslint-plugin-import": "^2.9.0",
+    "mocha": "^5.0.4",
+    "sinon": "^4.4.8",
+    "sinon-mongoose": "^2.1.1"
   }
 }
