@@ -24,13 +24,10 @@ yarn remove <dependency>
 
 ## TODO:
 * Logging
-* Body Parser
-* MongoDB
 * Auth
 * Swagger
-* Webpack
 * Prettier
 * Heroku Deployment
 * CircleCI
-* Testing
+* Unit Testing
 
